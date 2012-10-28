@@ -23,7 +23,8 @@
   tween.update(function(p){
     canvas.width = canvas.width;
     ctx.fillStyle = 'red';
-    ctx.arc(p.x, p.y, 10, 0, Math.PI * 2, false);
+    // console.log('(%s, %s)', p.x|0, p.y|0);
+    ctx.arc(p.x | 0, p.y | 0, 10, 0, Math.PI * 2, false);
     ctx.fill();
   });
 
