@@ -16,7 +16,7 @@
   var ctx = canvas.getContext('2d');
 
   var tween = Tween({ w: 1, h: 1, border: 1, alpha: 0 })
-    .ease('out-bounce')
+    .ease('out-circ')
     .to({ border: 5, w: 150, h: 100, alpha: 1  })
     .duration(800);
 
