@@ -3,7 +3,7 @@
   "repo": "component/tween",
   "description": "Motion tween component using \"ease\"",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": ["tween", "tweening", "animation"],
   "dependencies": {
     "component/ease": "*"
   },
