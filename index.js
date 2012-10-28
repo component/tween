@@ -71,6 +71,7 @@ Tween.prototype.to = function(obj){
 
 Tween.prototype.duration = function(ms){
   this._duration = ms;
+  this._end = this._start + this._duration;
   return this;
 };
 
@@ -103,6 +104,7 @@ Tween.prototype.step = function(){
 
   // duration
   var duration = this._duration;
+  var end = this._end;
   var now = Date.now();
   var diff = now - this._start;
   var done = diff >= duration;
@@ -120,9 +122,11 @@ Tween.prototype.step = function(){
   var to = this._to;
   var curr = this._curr;
   var fn = this._ease;
+  var p = (now - this._start) / duration;
+  var n = fn(p);
 
-  for (var key in from) {
-    curr[key] = fn(diff, from[key], to[key] - curr[key], duration);
+  for (var k in from) {
+    curr[k] = from[k] + (to[k] - from[k]) * n;
   }
 
   this._update(curr);
