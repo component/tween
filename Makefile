@@ -8,4 +8,9 @@ components: component.json
 clean:
 	rm -fr build components template.js
 
-.PHONY: clean
+tween.js:
+	@component build --standalone tween \
+		&& mv build/build.js $@ \
+		&& rm -fr build
+
+.PHONY: clean tween.js
