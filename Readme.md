@@ -7,6 +7,35 @@
 
     $ component install component/tween
 
+## Example
+
+```js
+var Tween = require('tween');
+var raf = require('raf');
+var button = document.querySelector('button');
+
+var tween = Tween({ rotate: 0, opacity: 0 })
+  .ease('out-bounce')
+  .to({ rotate: 360, opacity: 1  })
+  .duration(800);
+
+tween.update(function(o){
+  button.style.opacity = o.opacity;
+  button.style.webkitTransform = 'rotate(' + (o.rotate | 0) + 'deg)';
+});
+
+tween.on('end', function(){
+  animate = function(){};
+});
+
+function animate() {
+  raf(animate);
+  tween.update();
+}
+
+animate();
+```
+
 ## API
 
 ### Tween(obj)
