@@ -17,15 +17,17 @@
 
   var tween = new Tween({ x: 5, y: 5 });
   tween.ease('in-out-circ');
-  tween.to({ x: 200, y: 150 });
+  tween.to({ x: 800, y: 500 });
   tween.duration(1500);
 
-  tween.update(function(){
+  tween.update(function(p){
     canvas.width = canvas.width;
     ctx.fillStyle = 'red';
-    ctx.arc(x, y, 10, 0, Math.PI * 2, false);
+    ctx.arc(p.x, p.y, 10, 0, Math.PI * 2, false);
     ctx.fill();
   });
+
+  tween.start();
 
   tween.on('end', function(){
     console.log('done');
@@ -33,8 +35,9 @@
   });
 
   function animate() {
-    requestAnimationFrame(animate);
+    raf(animate);
     tween.update();
   }
 
+  animate();
 </script>
