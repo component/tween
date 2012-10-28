@@ -7,14 +7,14 @@ var ease = require('ease');
 
 module.exports = Tween;
 
-function Tween(val) {
+function Tween(obj) {
   if (!(this instanceof Tween)) return new Tween(val);
-  this._start = val;
+  this._start = obj;
   this.ease('linear');
 }
 
-Tween.prototype.to = function(val){
-  this._to = val;
+Tween.prototype.to = function(obj){
+  this._to = obj;
   return this;
 };
 
@@ -27,4 +27,8 @@ Tween.prototype.ease = function(fn){
   fn = 'function' == typeof fn ? fn : ease[fn];
   if (!fn) throw new TypeError('invalid easing function');
   this.ease = fn;
+};
+
+Tween.prototype.start = function(){
+  
 };
