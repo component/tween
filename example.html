@@ -1,0 +1,28 @@
+
+<style>
+  canvas {
+    border: 1px solid #eee;
+  }
+</style>
+
+<script src="build/build.js"></script>
+
+<canvas width=500 height=400></canvas>
+
+<script>
+  var Tween = require('tween');
+  var canvas = document.querySelector('canvas');
+  var ctx = canvas.getContext('2d');
+
+  var tween = new Tween({ x: 5, y: 5 });
+  tween.ease('in-out-circ');
+  tween.to({ x: 200, y: 150 });
+  tween.duration(1500);
+
+  tween.update(function(){
+    canvas.width = canvas.width;
+    ctx.fillStyle = 'red';
+    ctx.arc(x, y, 10, 0, Math.PI * 2, false);
+    ctx.fill();
+  });
+</script>

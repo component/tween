@@ -11,6 +11,7 @@ function Tween(obj) {
   if (!(this instanceof Tween)) return new Tween(val);
   this._start = obj;
   this.ease('linear');
+  this.duration(500);
 }
 
 Tween.prototype.to = function(obj){
@@ -28,6 +29,12 @@ Tween.prototype.ease = function(fn){
   if (!fn) throw new TypeError('invalid easing function');
   this.ease = fn;
 };
+
+Tween.prototype.update = function(fn){
+  this._update = fn;
+  return this;
+};
+
 
 Tween.prototype.start = function(){
   

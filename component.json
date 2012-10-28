@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "keywords": ["tween", "tweening", "animation"],
   "dependencies": {
+    "component/raf": "*",
     "component/ease": "*"
   },
   "development": {},
