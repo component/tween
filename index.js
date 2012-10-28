@@ -11,12 +11,19 @@ module.exports = Tween;
 function Tween(obj) {
   if (!(this instanceof Tween)) return new Tween(val);
   this._from = obj;
-  this._curr = clone(obj);
+  this.reset();
   this.ease('linear');
   this.duration(500);
 }
 
 Emitter(Tween.prototype);
+
+Tween.prototype.reset = function(){
+  this._curr = clone(this._from);
+  this._done = false;
+  this._start = Date.now();
+  return this;
+};
 
 Tween.prototype.to = function(obj){
   this._to = obj;
@@ -42,7 +49,13 @@ Tween.prototype.step = function(){
   var now = Date.now();
   var diff = now - this._start;
   var done = diff >= duration;
-  if (done) return this._done = true, this.emit('end');
+
+  if (done) {
+    this._from = this._curr;
+    this._done = true;
+    this.emit('end')
+    return;
+  }
 
   // tween
   var obj = this._from;

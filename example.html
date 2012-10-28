@@ -31,7 +31,8 @@
 
   tween.on('end', function(){
     console.log('done');
-    animate = function(){};
+    tween.reset().to({ x: 200, y: 10 });
+    // animate = function(){};
   });
 
   function animate() {
