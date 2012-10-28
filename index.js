@@ -66,8 +66,7 @@ Tween.prototype.step = function(){
   var fn = this._ease;
 
   for (var key in from) {
-    var val = from[key];
-    curr[key] = fn(diff, val, to[key] - curr[key], duration);
+    curr[key] = fn(diff, from[key], to[key] - curr[key], duration);
   }
 
   this._update(curr);
