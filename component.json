@@ -1,0 +1,13 @@
+{
+  "name": "tween",
+  "repo": "component/tween",
+  "description": "Motion tween component using \"ease\"",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
