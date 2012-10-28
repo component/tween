@@ -35,12 +35,14 @@ Tween.prototype.ease = function(fn){
 };
 
 Tween.prototype.step = function(){
+  if (this._done) return;
+
   // duration
   var duration = this._duration;
   var now = Date.now();
   var diff = now - this._start;
   var done = diff >= duration;
-  if (done) return this.emit('end');
+  if (done) return this._done = true, this.emit('end');
 
   // tween
   var obj = this._from;
