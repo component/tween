@@ -22,7 +22,6 @@ module.exports = Tween;
 function Tween(obj) {
   if (!(this instanceof Tween)) return new Tween(obj);
   this._from = obj;
-  this.reset();
   this.ease('linear');
   this.duration(500);
 }
@@ -47,7 +46,7 @@ Tween.prototype.reset = function(){
 };
 
 /**
- * Tween to `obj`.
+ * Tween to `obj` and reset internal state.
  *
  *    tween.to({ x: 50, y: 100 })
  *
@@ -57,6 +56,7 @@ Tween.prototype.reset = function(){
  */
 
 Tween.prototype.to = function(obj){
+  this.reset();
   this._to = obj;
   return this;
 };

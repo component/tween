@@ -30,7 +30,7 @@
   var n = 0;
   tween.on('end', function(){
     console.log('done');
-    tween.reset().to({ x: 0, y: 0 });
+    tween.to({ x: 0, y: 0 });
     if (++n == 2) animate = function(){};
   });
 
