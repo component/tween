@@ -27,10 +27,11 @@
     ctx.fill();
   });
 
+  var n = 0;
   tween.on('end', function(){
     console.log('done');
-    tween.reset().to({ x: 50, y: 50 });
-    // animate = function(){};
+    tween.reset().to({ x: 0, y: 0 });
+    if (++n == 2) animate = function(){};
   });
 
   function animate() {
