@@ -106,8 +106,8 @@ Tween.prototype.step = function(){
   var duration = this._duration;
   var end = this._end;
   var now = Date.now();
-  var diff = now - this._start;
-  var done = diff >= duration;
+  var delta = now - this._start;
+  var done = delta >= duration;
 
   // complete
   if (done) {
