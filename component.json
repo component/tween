@@ -4,7 +4,9 @@
   "description": "Motion tween component using \"ease\"",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "component/ease": "*"
+  },
   "development": {},
   "license": "MIT",
   "scripts": [
