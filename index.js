@@ -10,6 +10,7 @@ module.exports = Tween;
 function Tween(val) {
   if (!(this instanceof Tween)) return new Tween(val);
   this._start = val;
+  this.ease('linear');
 }
 
 Tween.prototype.to = function(val){
