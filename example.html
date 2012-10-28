@@ -15,10 +15,10 @@
   var canvas = document.querySelector('canvas');
   var ctx = canvas.getContext('2d');
 
-  var tween = new Tween({ x: 5, y: 5 });
-  tween.ease('in-out-circ');
-  tween.to({ x: 800, y: 500 });
-  tween.duration(1500);
+  var tween = Tween({ x: 5, y: 5 })
+    .ease('in-out-circ')
+    .to({ x: 800, y: 500 })
+    .duration(1500);
 
   tween.update(function(p){
     canvas.width = canvas.width;
@@ -31,7 +31,7 @@
 
   tween.on('end', function(){
     console.log('done');
-    tween.reset().to({ x: 200, y: 10 });
+    tween.reset().to({ x: 50, y: 50 });
     // animate = function(){};
   });
 

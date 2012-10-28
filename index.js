@@ -9,7 +9,7 @@ var Emitter = require('emitter')
 module.exports = Tween;
 
 function Tween(obj) {
-  if (!(this instanceof Tween)) return new Tween(val);
+  if (!(this instanceof Tween)) return new Tween(obj);
   this._from = obj;
   this.reset();
   this.ease('linear');
@@ -39,6 +39,7 @@ Tween.prototype.ease = function(fn){
   fn = 'function' == typeof fn ? fn : ease[fn];
   if (!fn) throw new TypeError('invalid easing function');
   this._ease = fn;
+  return this;
 };
 
 Tween.prototype.step = function(){
@@ -50,6 +51,7 @@ Tween.prototype.step = function(){
   var diff = now - this._start;
   var done = diff >= duration;
 
+  // complete
   if (done) {
     this._from = this._curr;
     this._done = true;
