@@ -27,8 +27,6 @@
     ctx.fill();
   });
 
-  tween.start();
-
   tween.on('end', function(){
     console.log('done');
     tween.reset().to({ x: 50, y: 50 });

@@ -60,13 +60,13 @@ Tween.prototype.step = function(){
   }
 
   // tween
-  var obj = this._from;
+  var from = this._from;
   var to = this._to;
   var curr = this._curr;
   var fn = this._ease;
 
-  for (var key in obj) {
-    var val = obj[key];
+  for (var key in from) {
+    var val = from[key];
     curr[key] = fn(diff, val, to[key] - curr[key], duration);
   }
 
@@ -77,11 +77,6 @@ Tween.prototype.update = function(fn){
   if (0 == arguments.length) return this.step();
   this._update = fn;
   return this;
-};
-
-
-Tween.prototype.start = function(){
-  this._start = Date.now();
 };
 
 /**
