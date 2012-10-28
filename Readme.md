@@ -1,7 +1,7 @@
 
 # tween
 
-  Motion tween component using &quot;ease&quot;
+  Motion tween component using [ease](https://github.com/component/ease).
 
 ## Installation
 
