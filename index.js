@@ -3,7 +3,8 @@
  * Module dependencies.
  */
 
-var ease = require('ease');
+var Emitter = require('emitter')
+  , ease = require('ease');
 
 module.exports = Tween;
 
@@ -13,6 +14,8 @@ function Tween(obj) {
   this.ease('linear');
   this.duration(500);
 }
+
+Emitter(Tween.prototype);
 
 Tween.prototype.to = function(obj){
   this._to = obj;

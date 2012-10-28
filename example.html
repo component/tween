@@ -11,6 +11,7 @@
 
 <script>
   var Tween = require('tween');
+  var raf = require('component-raf');
   var canvas = document.querySelector('canvas');
   var ctx = canvas.getContext('2d');
 
@@ -25,4 +26,15 @@
     ctx.arc(x, y, 10, 0, Math.PI * 2, false);
     ctx.fill();
   });
+
+  tween.on('end', function(){
+    console.log('done');
+    animate = function(){};
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    tween.update();
+  }
+
 </script>
