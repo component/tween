@@ -9,7 +9,8 @@
     "component/ease": "*"
   },
   "development": {
-    "component/raf": "*"
+    "component/raf": "*",
+    "component/autoscale-canvas": "*"
   },
   "license": "MIT",
   "scripts": [

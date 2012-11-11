@@ -15,7 +15,7 @@ module.exports = Tween;
 /**
  * Initialize a new `Tween` with `obj`.
  *
- * @param {Object} obj
+ * @param {Object|Array} obj
  * @api public
  */
 
@@ -39,6 +39,7 @@ Emitter(Tween.prototype);
  */
 
 Tween.prototype.reset = function(){
+  this.isArray = Array.isArray(this._from);
   this._curr = clone(this._from);
   this._done = false;
   this._start = Date.now();
@@ -50,7 +51,7 @@ Tween.prototype.reset = function(){
  *
  *    tween.to({ x: 50, y: 100 })
  *
- * @param {Object} obj
+ * @param {Object|Array} obj
  * @return {Tween} self
  * @api public
  */
@@ -125,6 +126,17 @@ Tween.prototype.step = function(){
   var p = (now - this._start) / duration;
   var n = fn(p);
 
+  // array
+  if (this.isArray) {
+    for (var i = 0; i < from.length; ++i) {
+      curr[i] = from[i] + (to[i] - from[i]) * n;
+    }
+
+    this._update(curr);
+    return this;
+  }
+
+  // objech
   for (var k in from) {
     curr[k] = from[k] + (to[k] - from[k]) * n;
   }
@@ -134,7 +146,7 @@ Tween.prototype.step = function(){
 };
 
 /**
- * Set update function to `fn` or 
+ * Set update function to `fn` or
  * when no argument is given this performs
  * a "step".
  *
@@ -151,11 +163,12 @@ Tween.prototype.update = function(fn){
 
 /**
  * Clone `obj`.
- * 
+ *
  * @api private
  */
 
 function clone(obj) {
+  if (Array.isArray(obj)) return obj.slice();
   var ret = {};
   for (var key in obj) ret[key] = obj[key];
   return ret;

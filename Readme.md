@@ -38,7 +38,7 @@ animate();
 
 ## API
 
-### Tween(obj)
+### Tween(obj:Object|Array)
 
   Initialize a new `Tween` with `obj`.
 
@@ -46,7 +46,7 @@ animate();
 
   Reset the tween.
 
-### Tween#to(obj:Object)
+### Tween#to(obj:Object|Array)
 
   Tween to `obj` and reset internal state.
   
