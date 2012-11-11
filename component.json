@@ -2,7 +2,7 @@
   "name": "tween",
   "repo": "component/tween",
   "description": "Motion tween engine using 'ease'",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "keywords": ["tween", "tweening", "animation"],
   "dependencies": {
     "component/emitter": "*",
