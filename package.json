@@ -1,0 +1,16 @@
+{
+  "name": "tween-component",
+  "description": "Motion tween engine using 'ease'",
+  "version": "0.1.0",
+  "keywords": ["tween", "tweening", "animation"],
+  "dependencies": {
+    "emitter-component": "*",
+    "ease-component": "*"
+  },
+  "license": "MIT",
+  "component": {
+    "scripts": {
+      "tween/index.js": "index.js"
+    }
+  }
+}
