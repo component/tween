@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "keywords": ["tween", "tweening", "animation"],
   "dependencies": {
-    "emitter-component": "*",
-    "ease-component": "*"
+    "emitter-component": "1.0.0",
+    "ease-component": "1.0.0"
   },
   "license": "MIT",
   "component": {
