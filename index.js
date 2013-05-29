@@ -93,6 +93,21 @@ Tween.prototype.ease = function(fn){
 };
 
 /**
+ * Stop the tween and immediately emit "stop" and "end".
+ *
+ * @return {Tween}
+ * @api public
+ */
+
+Tween.prototype.stop = function(){
+  this.stopped = true;
+  this._done = true;
+  this.emit('stop');
+  this.emit('end');
+  return this;
+};
+
+/**
  * Perform a step.
  *
  * @return {Tween} self
