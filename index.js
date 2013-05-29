@@ -115,7 +115,7 @@ Tween.prototype.step = function(){
     this._from = this._curr;
     this._done = true;
     this.emit('end')
-    return;
+    return this;
   }
 
   // tween
