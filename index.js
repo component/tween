@@ -112,7 +112,8 @@ Tween.prototype.step = function(){
 
   // complete
   if (done) {
-    this._from = this._curr;
+    this._from = this._to;
+    this._update(this._to);
     this._done = true;
     this.emit('end');
     return this;
