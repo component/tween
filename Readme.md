@@ -49,7 +49,7 @@ animate();
 ### Tween#to(obj:Object|Array)
 
   Tween to `obj` and reset internal state.
-  
+
      tween.to({ x: 50, y: 100 })
 
 ### Tween#duration(ms:Number)
@@ -59,14 +59,19 @@ animate();
 ### Tween#ease(fn:String|Function)
 
   Set easing function to `fn`.
-  
+
      tween.ease('in-out-sine')
 
 ### Tween#update(fn:Function)
 
-  Set update function to `fn` or 
+  Set update function to `fn` or
   when no argument is given this performs
   a "step".
+
+### Tween#stop()
+
+  Immediately stop the tween and emit "stop" and end" events. `tween.stopped`
+  is then marked as `true`.
 
 ## License
 
