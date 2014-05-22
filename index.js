@@ -3,8 +3,10 @@
  * Module dependencies.
  */
 
-var Emitter = require('emitter')
-  , ease = require('ease');
+var Emitter = require('emitter');
+var clone = require('clone');
+var type = require('type');
+var ease = require('ease');
 
 /**
  * Expose `Tween`.
@@ -39,7 +41,7 @@ Emitter(Tween.prototype);
  */
 
 Tween.prototype.reset = function(){
-  this.isArray = Array.isArray(this._from);
+  this.isArray = 'array' === type(this._from);
   this._curr = clone(this._from);
   this._done = false;
   this._start = Date.now();
@@ -174,16 +176,3 @@ Tween.prototype.update = function(fn){
   this._update = fn;
   return this;
 };
-
-/**
- * Clone `obj`.
- *
- * @api private
- */
-
-function clone(obj) {
-  if (Array.isArray(obj)) return obj.slice();
-  var ret = {};
-  for (var key in obj) ret[key] = obj[key];
-  return ret;
-}
