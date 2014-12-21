@@ -11,6 +11,10 @@
     "emitter-component": "1.0.0",
     "ease-component": "1.0.0"
   },
+  "browser": {
+    "emitter": "emitter-component",
+    "ease": "ease-component"
+  },
   "license": "MIT",
   "component": {
     "scripts": {
