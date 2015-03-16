@@ -1,5 +1,5 @@
 {
-  "name": "tween-component",
+  "name": "component-tween",
   "description": "Motion tween engine using 'ease'",
   "version": "1.2.0",
   "keywords": [
