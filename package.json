@@ -8,11 +8,11 @@
     "animation"
   ],
   "dependencies": {
-    "emitter-component": "1.0.0",
+    "component-emitter": "1.2.0",
     "ease-component": "1.0.0"
   },
   "browser": {
-    "emitter": "emitter-component",
+    "emitter": "component-emitter",
     "ease": "ease-component"
   },
   "license": "MIT",
